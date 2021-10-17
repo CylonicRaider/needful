@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TheneedfulService } from './theneedful.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'The Pinnacle of UI';
 
+  constructor(private service: TheneedfulService) {}
+
   doTheNeedful() {
-    setTimeout(() => alert('OK'), 100 + 200 * Math.random());
+    this.service.doTheNeedful();
   }
 }
