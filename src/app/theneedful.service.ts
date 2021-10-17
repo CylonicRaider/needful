@@ -4,7 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class TheneedfulService {
+  private busy: boolean = false;
+
   doTheNeedful() {
-    setTimeout(() => alert('OK'), 100 + 200 * Math.random());
+    if (this.busy) return;
+    this.start();
+  }
+
+  private start() {
+    this.busy = true;
+    setTimeout(() => this.finish(), 100 + 200 * Math.random());
+  }
+
+  private finish() {
+    alert('OK');
+    this.busy = false;
   }
 }
