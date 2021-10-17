@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'needful'`, () => {
+  it('should have the right title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('needful');
+    expect(app.title).toEqual('The Pinnacle of UI');
   });
 
-  it('should render title', () => {
+  it('should render the button', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('needful app is running!');
+    expect(compiled.querySelector('button')?.textContent).toContain('Do the needful');
   });
 });
