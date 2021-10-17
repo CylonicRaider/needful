@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'The Pinnacle of UI';
+
+  doTheNeedful() {
+    setTimeout(() => alert('OK'), 100 + 200 * Math.random());
+  }
 }
