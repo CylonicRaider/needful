@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
-
-function sleep(time: number): Promise<void> {
-  return new Promise(res => setTimeout(res, time));
-}
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TheneedfulService {
   private busy: boolean = false;
+
+  constructor(private http: HttpClient) {}
 
   doTheNeedful() {
     if (this.busy) return;
@@ -17,7 +16,16 @@ export class TheneedfulService {
 
   private async run() {
     this.busy = true;
-    await sleep(100 + 200 * Math.random());
+    await new Promise(resolve => {
+      this.http.post('doit', null).subscribe(
+        () => {},
+        err => {
+          console.error('API request failed:', err);
+          resolve(null);
+        },
+        () => resolve(null),
+      );
+    });
     alert('OK');
     this.busy = false;
   }
