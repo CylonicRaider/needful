@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TheneedfulService {
-  private busy: boolean = false;
+  busy = false;
 
   constructor(private http: HttpClient) {}
 

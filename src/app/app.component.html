@@ -1,1 +1,3 @@
-<button (click)="doTheNeedful()">Do the needful</button>
+<button [disabled]="service.busy" (click)="doTheNeedful()">
+  Do the needful
+</button>

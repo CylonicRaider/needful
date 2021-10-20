@@ -9,7 +9,7 @@ import { TheneedfulService } from './theneedful.service';
 export class AppComponent {
   title = 'The Pinnacle of UI';
 
-  constructor(private service: TheneedfulService) {}
+  constructor(public service: TheneedfulService) {}
 
   doTheNeedful() {
     this.service.doTheNeedful();
