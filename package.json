@@ -2,8 +2,9 @@
   "name": "needful",
   "version": "0.0.0",
   "scripts": {
+    "cleanup": "npm run format && npm run lint",
+    "format": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "ng": "ng",
-    "prettier": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
