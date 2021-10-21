@@ -11,7 +11,7 @@ export class TheneedfulService {
 
   doTheNeedful() {
     if (this.busy) return;
-    this.run();
+    void this.run();
   }
 
   private async run() {
