@@ -17,7 +17,7 @@ export class TheneedfulService {
   private async run() {
     this.busy = true;
     await new Promise(resolve => {
-      this.http.post('doit', null).subscribe(
+      this.http.post('api/doit', null).subscribe(
         () => {},
         err => {
           console.error('API request failed:', err);
