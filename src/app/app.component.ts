@@ -20,8 +20,9 @@ export class AppComponent {
   ) {}
 
   doTheNeedful() {
-    this.service.doTheNeedful(() => {
-      this.snackbar.open('Done', 'OK', {
+    this.service.doTheNeedful((ok: boolean) => {
+      const message = ok ? 'Done' : 'Error';
+      this.snackbar.open(message, 'OK', {
         horizontalPosition: 'left',
         duration: 5000,
       });

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-type TheneedfulCallback = () => void;
+type TheneedfulCallback = (ok: boolean) => void;
 
 @Injectable({
   providedIn: 'root',
@@ -18,17 +18,17 @@ export class TheneedfulService {
 
   private async run(callback: TheneedfulCallback | null) {
     this.busy = true;
-    await new Promise(resolve => {
+    const ok = await new Promise<boolean>(resolve => {
       this.http.post('api/doit', null).subscribe(
         () => {},
         err => {
           console.error('API request failed:', err);
-          resolve(null);
+          resolve(false);
         },
-        () => resolve(null),
+        () => resolve(true),
       );
     });
     this.busy = false;
-    if (callback != null) callback();
+    if (callback != null) callback(ok);
   }
 }
