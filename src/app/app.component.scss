@@ -1,7 +1,19 @@
 :host {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.slot {
+  display: inline-block;
+  width: 36px;
+
+  &.slot-left {
+    margin-right: 8px;
+  }
+
+  &.slot-right {
+    margin-left: 8px;
+  }
 }
