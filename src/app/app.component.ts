@@ -4,7 +4,7 @@ import { TheneedfulService } from './theneedful.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less'],
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'The Pinnacle of UI';
