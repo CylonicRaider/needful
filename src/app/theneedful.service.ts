@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+type TheneedfulCallback = () => void;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -9,12 +11,12 @@ export class TheneedfulService {
 
   constructor(private http: HttpClient) {}
 
-  doTheNeedful() {
+  doTheNeedful(callback: TheneedfulCallback | null = null) {
     if (this.busy) return;
-    void this.run();
+    void this.run(callback);
   }
 
-  private async run() {
+  private async run(callback: TheneedfulCallback | null) {
     this.busy = true;
     await new Promise(resolve => {
       this.http.post('api/doit', null).subscribe(
@@ -26,7 +28,7 @@ export class TheneedfulService {
         () => resolve(null),
       );
     });
-    alert('OK');
     this.busy = false;
+    if (callback != null) callback();
   }
 }
