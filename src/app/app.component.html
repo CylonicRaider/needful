@@ -1,5 +1,9 @@
 <div class="slot slot-left">
-  <mat-spinner *ngIf="service.busy" diameter="36"></mat-spinner>
+  <mat-spinner
+    *ngIf="service.busy"
+    diameter="36"
+    aria-label="Please wait&hellip;"
+  ></mat-spinner>
 </div>
 <button
   mat-raised-button
