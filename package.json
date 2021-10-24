@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "dev:ssr": "ng run needful:serve-ssr",
-    "serve:ssr": "node dist/needful/server/main.js",
+    "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build && ng run needful:server",
     "prerender": "ng run needful:prerender"
   },

@@ -61,7 +61,7 @@ function run(argv: string[]): void {
 
   const host = parsed.host || process.env.BIND_HOST || '';
   const port = parsed.post || process.env.PORT || 4000;
-  const statics = parsed.webroot || join(__dirname, '../browser');
+  const statics = parsed.webroot || join(__dirname, '../public');
 
   // Start up the Node server
   const server = app(statics);
