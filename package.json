@@ -1,6 +1,8 @@
 {
   "name": "needful",
   "version": "0.0.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
   "scripts": {
     "build": "ng run needful:prerender",
     "start": "node dist/server/main.js",
@@ -11,7 +13,6 @@
     "ng": "ng",
     "test": "ng test"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^12.2.11",
     "@angular/cdk": "^12.2.11",

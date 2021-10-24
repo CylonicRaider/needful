@@ -1,5 +1,8 @@
 {
   "root": true,
+  "rules": {
+    "max-len": ["warn", 80]
+  },
   "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
@@ -35,7 +38,9 @@
     {
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "rules": {
+        "max-len": ["warn", 120]
+      }
     }
   ]
 }

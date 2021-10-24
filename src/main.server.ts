@@ -1,9 +1,8 @@
-/***************************************************************************************************
- * Initialize the server environment - for example, adding DOM built-in types to the global scope.
+/*
+ * Initialize the server environment.
  *
- * NOTE:
- * This import must come before any imports (direct or transitive) that rely on DOM built-ins being
- * available, such as `@angular/elements`.
+ * NOTE: @angular/platform-server/init should be imported before anything that
+ *       depends on DOM APIs.
  */
 import '@angular/platform-server/init';
 
