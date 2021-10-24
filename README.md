@@ -25,7 +25,8 @@ The pinnacle of UI.
 
 ## Colophon
 
-Developed using the [Angular](https://angular.io) framework.
+Developed using the [Angular](https://angular.io) framework. The favicon is part
+of the [twemoji](https://twemoji.twitter.com/) set.
 
 For Angular-specific help, see the output of `npm run ng help`.
 
@@ -37,3 +38,5 @@ Original code is licensed under the **AGPLv3**, or any later version. See the
 The licensing of Angular-template-derived code is somewhat ambiguous, but should
 lie somewhere between **MIT** (from Angular) and **AGPLv3** (by the project
 maintainer's preference).
+
+The favicon is licensed under the **CC-BY 4.0**.
