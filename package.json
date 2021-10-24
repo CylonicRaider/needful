@@ -1,8 +1,13 @@
 {
   "name": "needful",
   "version": "0.0.0",
+  "description": "The pinnacle of UI",
   "private": true,
   "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CylonicRaider/needful"
+  },
   "scripts": {
     "build": "ng run needful:prerender",
     "start": "node dist/server/main.js",
