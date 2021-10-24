@@ -12,7 +12,7 @@ The pinnacle of UI.
 
 ### Deployment
 
-- **Build:** Run `npm run build` to put production-ready server and client
+- **Building:** Run `npm run build` to put production-ready server and client
   images into the `dist/` directory.
   - `dist/public` contains the client files, and can be deployed to a static
     file server or CDN.
@@ -20,8 +20,8 @@ The pinnacle of UI.
     requires the client files for server-side rendering; if installed at a
     non-default location, you need to specify the client directory's path as the
     `--webroot`.
-- **Run:** Run `npm start` (after a successful build) to start the production
-  server at the default port.
+- **Running:** Run `npm start` (after a successful build) to start the
+  production server on the default port.
 
 ## Colophon
 
