@@ -4,6 +4,10 @@ The pinnacle of UI.
 
 ## Usage
 
+Press the button, and the needful will be done.
+
+## Development
+
 - **Development server:** Run `npm run dev`, and go to <http://localhost:4200>.
 - **Testing:** Run `npm run test` to (continuously) perform unit tests.
 - **Code clean-up:** Run `npm run cleanup` to invoke the code formatter and
