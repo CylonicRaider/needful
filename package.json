@@ -12,7 +12,7 @@
     "build": "ng run needful:prerender",
     "start": "node dist/server/main.js",
     "dev": "ng run needful:serve-ssr",
-    "format": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html}\"",
+    "format": "prettier --write \"**/*.{js,json,css,scss,less,md,ts,html,component.html,webmanifest}\"",
     "lint": "ng lint",
     "cleanup": "npm run format && npm run lint",
     "ng": "ng",
