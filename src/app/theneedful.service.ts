@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-type TheneedfulCallback = (ok: boolean) => void;
+export type TheneedfulCallback = (ok: boolean) => void;
 
 @Injectable({
   providedIn: 'root',
