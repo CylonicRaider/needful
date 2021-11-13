@@ -6,12 +6,22 @@ import { TheneedfulService, TheneedfulCallback } from './theneedful.service';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
-  let serviceMock: { doTheNeedful: any };
-  let snackbarMock: { open: any };
+  let serviceMock: {
+    doTheNeedful: jasmine.Spy<(cb?: TheneedfulCallback | null) => void>;
+  };
+  let snackbarMock: {
+    open: jasmine.Spy<
+      (message: string, action: string, options: unknown) => void
+    >;
+  };
 
   beforeEach(async () => {
-    serviceMock = jasmine.createSpyObj('TheneedfulService', ['doTheNeedful']);
-    snackbarMock = jasmine.createSpyObj('MatSnackBar', ['open']);
+    serviceMock = jasmine.createSpyObj('TheneedfulService', [
+      'doTheNeedful',
+    ]) as typeof serviceMock;
+    snackbarMock = jasmine.createSpyObj('MatSnackBar', [
+      'open',
+    ]) as typeof snackbarMock;
 
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
@@ -48,9 +58,16 @@ describe('AppComponent', () => {
       dom = fixture.nativeElement as HTMLElement;
     });
 
-    function hookDTNAndClick(cb: (arg: any) => void) {
+    function hookDTNAndClick(cb: (arg?: TheneedfulCallback | null) => void) {
       serviceMock.doTheNeedful.and.callFake(cb);
       dom.querySelector('button')?.click();
+    }
+
+    function dtnFixedHook(result: boolean) {
+      return (arg?: TheneedfulCallback | null) => {
+        expect(arg).toBeTruthy();
+        (arg as TheneedfulCallback)(result);
+      };
     }
 
     it('should react', () => {
@@ -65,26 +82,26 @@ describe('AppComponent', () => {
     });
 
     it('should display a notification', () => {
-      hookDTNAndClick(arg => arg(true));
+      hookDTNAndClick(dtnFixedHook(true));
       expect(snackbarMock.open).toHaveBeenCalled();
     });
 
     it('should indicate success correctly', () => {
       snackbarMock.open.and.callFake(
-        (message: string, action: string, options: any) => {
+        (message: string, action: string, options: unknown) => {
           expect(message).toBe('Done');
         },
       );
-      hookDTNAndClick(arg => arg(true));
+      hookDTNAndClick(dtnFixedHook(true));
     });
 
     it('should indicate failure correctly', () => {
       snackbarMock.open.and.callFake(
-        (message: string, action: string, options: any) => {
+        (message: string, action: string, options: unknown) => {
           expect(message).toBe('Error');
         },
       );
-      hookDTNAndClick(arg => arg(false));
+      hookDTNAndClick(dtnFixedHook(false));
     });
   });
 });
