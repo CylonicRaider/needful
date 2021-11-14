@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 export type TheneedfulCallback = (ok: boolean) => void;
 
@@ -9,7 +8,7 @@ export type TheneedfulCallback = (ok: boolean) => void;
 export class TheneedfulService {
   busy = false;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   doTheNeedful(callback: TheneedfulCallback | null = null) {
     if (this.busy) return;
@@ -19,14 +18,7 @@ export class TheneedfulService {
   private async run(callback: TheneedfulCallback | null) {
     this.busy = true;
     const ok = await new Promise<boolean>(resolve => {
-      this.http.post('api/doit', null).subscribe(
-        () => {},
-        err => {
-          console.error('API request failed:', err);
-          resolve(false);
-        },
-        () => resolve(true),
-      );
+      setTimeout(() => resolve(true), 1000 + 2000 * Math.random());
     });
     this.busy = false;
     if (callback != null) callback(ok);
