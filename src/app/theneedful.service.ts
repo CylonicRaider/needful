@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import doit from './needful';
+
 export type TheneedfulCallback = (ok: boolean) => void;
 
 @Injectable({
@@ -17,9 +19,7 @@ export class TheneedfulService {
 
   private async run(callback: TheneedfulCallback | null) {
     this.busy = true;
-    const ok = await new Promise<boolean>(resolve => {
-      setTimeout(() => resolve(true), 1000 + 2000 * Math.random());
-    });
+    const ok = await doit();
     this.busy = false;
     if (callback != null) callback(ok);
   }
