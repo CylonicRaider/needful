@@ -8,7 +8,6 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import * as express from 'express';
 import * as minimist from 'minimist';
 
-import { app as api } from './src/api';
 import { AppServerModule } from './src/main.server';
 
 // The Express app is exported so that it can be used by serverless Functions.
@@ -30,7 +29,7 @@ export function app(distFolder: string): express.Express {
   server.set('views', distFolder);
 
   // API endpoints.
-  server.all('/api/**', api());
+  //server.all('/api/**', require('./src/api'));
 
   // Static files are differentiated by including dots.
   server.get(
